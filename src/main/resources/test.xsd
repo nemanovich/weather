@@ -1,0 +1,254 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://weather.yandex.ru/forecast">
+  <xs:element xmlns:for="http://weather.yandex.ru/forecast" name="forecast" type="for:forecastType"/>
+  <xs:complexType name="stationType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="lang" use="optional"/>
+        <xs:attribute type="xs:byte" name="distance" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="temperatureType">
+    <xs:simpleContent>
+      <xs:extension base="xs:byte">
+        <xs:attribute type="xs:string" name="color" use="optional"/>
+        <xs:attribute type="xs:string" name="plate" use="optional"/>
+        <xs:attribute type="xs:string" name="type" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="weather_conditionType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="code" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="imageType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:byte" name="type" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="image-v2Type">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="color" use="optional"/>
+        <xs:attribute type="xs:string" name="type" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="image-v3Type">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="type" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="pressureType">
+    <xs:simpleContent>
+      <xs:extension base="xs:short">
+        <xs:attribute type="xs:string" name="units" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="mslp_pressureType">
+    <xs:simpleContent>
+      <xs:extension base="xs:short">
+        <xs:attribute type="xs:string" name="units" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="seasonType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="type" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="factType">
+    <xs:sequence>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:stationType" name="station" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="xs:dateTime" name="observation_time"/>
+      <xs:element type="xs:dateTime" name="uptime"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:temperatureType" name="temperature"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:weather_conditionType" name="weather_condition"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:imageType" name="image"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:image-v2Type" name="image-v2"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:image-v3Type" name="image-v3"/>
+      <xs:element type="xs:string" name="weather_type"/>
+      <xs:element type="xs:string" name="weather_type_short"/>
+      <xs:element type="xs:string" name="weather_type_tt"/>
+      <xs:element type="xs:string" name="weather_type_short_tt"/>
+      <xs:element type="xs:string" name="weather_type_tr"/>
+      <xs:element type="xs:string" name="weather_type_short_tr"/>
+      <xs:element type="xs:string" name="weather_type_kz"/>
+      <xs:element type="xs:string" name="weather_type_short_kz"/>
+      <xs:element type="xs:string" name="weather_type_ua"/>
+      <xs:element type="xs:string" name="weather_type_short_ua"/>
+      <xs:element type="xs:string" name="weather_type_by"/>
+      <xs:element type="xs:string" name="weather_type_short_by"/>
+      <xs:element type="xs:string" name="wind_direction"/>
+      <xs:element type="xs:float" name="wind_speed"/>
+      <xs:element type="xs:byte" name="humidity"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:pressureType" name="pressure"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:mslp_pressureType" name="mslp_pressure"/>
+      <xs:element type="xs:string" name="daytime"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:seasonType" name="season"/>
+      <xs:element type="xs:string" name="ipad_image"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="yesterdayType">
+    <xs:sequence>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:stationType" name="station" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="xs:dateTime" name="observation_time"/>
+      <xs:element type="xs:dateTime" name="uptime"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:temperatureType" name="temperature"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:weather_conditionType" name="weather_condition"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:imageType" name="image"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:image-v2Type" name="image-v2"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:image-v3Type" name="image-v3"/>
+      <xs:element type="xs:string" name="weather_type"/>
+      <xs:element type="xs:string" name="weather_type_short"/>
+      <xs:element type="xs:string" name="weather_type_tt"/>
+      <xs:element type="xs:string" name="weather_type_short_tt"/>
+      <xs:element type="xs:string" name="weather_type_tr"/>
+      <xs:element type="xs:string" name="weather_type_short_tr"/>
+      <xs:element type="xs:string" name="weather_type_kz"/>
+      <xs:element type="xs:string" name="weather_type_short_kz"/>
+      <xs:element type="xs:string" name="weather_type_ua"/>
+      <xs:element type="xs:string" name="weather_type_short_ua"/>
+      <xs:element type="xs:string" name="weather_type_by"/>
+      <xs:element type="xs:string" name="weather_type_short_by"/>
+      <xs:element type="xs:string" name="wind_direction"/>
+      <xs:element type="xs:float" name="wind_speed"/>
+      <xs:element type="xs:byte" name="humidity"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:pressureType" name="pressure"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:mslp_pressureType" name="mslp_pressure"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:seasonType" name="season"/>
+      <xs:element type="xs:string" name="ipad_image"/>
+    </xs:sequence>
+    <xs:attribute type="xs:int" name="id"/>
+  </xs:complexType>
+  <xs:complexType name="informerType">
+    <xs:sequence>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:temperatureType" name="temperature" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="moon_phaseType">
+    <xs:simpleContent>
+      <xs:extension base="xs:byte">
+        <xs:attribute type="xs:string" name="code" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="messageType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="code" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="biometType">
+    <xs:sequence>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:messageType" name="message" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:byte" name="index"/>
+    <xs:attribute type="xs:byte" name="geomag"/>
+    <xs:attribute type="xs:byte" name="low_press"/>
+  </xs:complexType>
+  <xs:complexType name="avgType">
+    <xs:simpleContent>
+      <xs:extension base="xs:byte">
+        <xs:attribute type="xs:string" name="bgcolor" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="temperature-dataType">
+    <xs:sequence>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:avgType" name="avg"/>
+      <xs:element type="xs:byte" name="from" minOccurs="0"/>
+      <xs:element type="xs:byte" name="to" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="day_partType">
+    <xs:sequence>
+      <xs:element type="xs:byte" name="temperature_from" minOccurs="0"/>
+      <xs:element type="xs:byte" name="temperature_to" minOccurs="0"/>
+      <xs:element type="xs:byte" name="temperature" minOccurs="0"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:temperature-dataType" name="temperature-data"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:weather_conditionType" name="weather_condition"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:imageType" name="image"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:image-v2Type" name="image-v2"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:image-v3Type" name="image-v3"/>
+      <xs:element type="xs:string" name="weather_type"/>
+      <xs:element type="xs:string" name="weather_type_short"/>
+      <xs:element type="xs:string" name="weather_type_tt"/>
+      <xs:element type="xs:string" name="weather_type_short_tt"/>
+      <xs:element type="xs:string" name="weather_type_tr"/>
+      <xs:element type="xs:string" name="weather_type_short_tr"/>
+      <xs:element type="xs:string" name="weather_type_kz"/>
+      <xs:element type="xs:string" name="weather_type_short_kz"/>
+      <xs:element type="xs:string" name="weather_type_ua"/>
+      <xs:element type="xs:string" name="weather_type_short_ua"/>
+      <xs:element type="xs:string" name="weather_type_by"/>
+      <xs:element type="xs:string" name="weather_type_short_by"/>
+      <xs:element type="xs:string" name="wind_direction"/>
+      <xs:element type="xs:float" name="wind_speed"/>
+      <xs:element type="xs:byte" name="humidity"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:pressureType" name="pressure"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:mslp_pressureType" name="mslp_pressure"/>
+    </xs:sequence>
+    <xs:attribute type="xs:byte" name="typeid" use="optional"/>
+    <xs:attribute type="xs:string" name="type" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="hourType">
+    <xs:sequence>
+      <xs:element type="xs:byte" name="temperature"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:weather_conditionType" name="weather_condition"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:imageType" name="image"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:image-v2Type" name="image-v2"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:image-v3Type" name="image-v3"/>
+    </xs:sequence>
+    <xs:attribute type="xs:byte" name="at" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="dayType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="sunrise"/>
+      <xs:element type="xs:string" name="sunset"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:moon_phaseType" name="moon_phase"/>
+      <xs:element type="xs:string" name="moonrise"/>
+      <xs:element type="xs:string" name="moonset" minOccurs="0"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:biometType" name="biomet" minOccurs="0"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:day_partType" name="day_part" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:hourType" name="hour" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:date" name="date" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="forecastType">
+    <xs:sequence>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:factType" name="fact"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:yesterdayType" name="yesterday"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:informerType" name="informer"/>
+      <xs:element xmlns:for="http://weather.yandex.ru/forecast" type="for:dayType" name="day" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="country_id"/>
+    <xs:attribute type="xs:string" name="part"/>
+    <xs:attribute type="xs:anyURI" name="link"/>
+    <xs:attribute type="xs:string" name="part_id"/>
+    <xs:attribute type="xs:float" name="lat"/>
+    <xs:attribute type="xs:string" name="slug"/>
+    <xs:attribute type="xs:string" name="city"/>
+    <xs:attribute type="xs:byte" name="climate"/>
+    <xs:attribute type="xs:string" name="country"/>
+    <xs:attribute type="xs:byte" name="region"/>
+    <xs:attribute type="xs:float" name="lon"/>
+    <xs:attribute type="xs:byte" name="zoom"/>
+    <xs:attribute type="xs:short" name="id"/>
+    <xs:attribute type="xs:string" name="source"/>
+    <xs:attribute type="xs:string" name="exactname"/>
+    <xs:attribute type="xs:byte" name="geoid"/>
+  </xs:complexType>
+</xs:schema>

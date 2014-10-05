@@ -1,0 +1,6 @@
+/.classpath
+/.project
+/phantomjsdriver.log
+/target/
+/.settings/
+/src/main/java/META-INF/
