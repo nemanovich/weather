@@ -50,16 +50,16 @@ public class ChangeRegionTest extends BaseTest {
 	@Test
 	public final void regionChangeFromCitySwitcher() throws Exception {
 		DriverFactory.getDriver().manage().deleteAllCookies();
-		mainPage.search("Екатеринбург");
+		mainPage.search("Новосибирск");
 		mainPage.loadPage(City.MOSCOW.url());
 		mainPage.openCitySwitcherPopup();
 		
 		WebElement firstLink = mainPage.getCitySwitcherPopup().getCityLinks().get(0);
-		assertEquals("Екатеринбург", firstLink.getText());
+		assertEquals("Новосибирск", firstLink.getText());
 		takeScreenshot();
 		
 		firstLink.click();
-		assertEquals("Погода в Екатеринбурге", mainPage.getCityTitle());
+		assertEquals("Погода в Новосибирске", mainPage.getCityTitle());
 		takeScreenshot();
 	}
 }
