@@ -13,11 +13,11 @@ import ru.yandex.qatools.htmlelements.element.HtmlElement;
 @Block(@FindBy(className = "b-form-input__popup_head-search_yes"))
 public class SearchHintPopup extends HtmlElement {
 
-    @Name("Список подсказок")
-    @FindBy(className = "b-autocomplete-item")
-    private List<WebElement> hints;
+	@Name("Список подсказок")
+	@FindBy(className = "b-autocomplete-item")
+	private List<WebElement> hints;
 
-    public List<WebElement> getHintsList() {
-    	return hints;
-    }
+	public List<WebElement> getHintsList() {
+		return hints;
+	}
 }

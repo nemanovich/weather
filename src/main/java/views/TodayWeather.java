@@ -11,11 +11,11 @@ import ru.yandex.qatools.htmlelements.element.HtmlElement;
 @Block(@FindBy(className = "l-layout_layout_current-weather"))
 public class TodayWeather extends HtmlElement {
 
-    @Name("Температура сейчас")
-    @FindBy(className = "b-thermometer__now")
-    private WebElement temperatureNow;
+	@Name("Температура сейчас")
+	@FindBy(className = "b-thermometer__now")
+	private WebElement temperatureNow;
 
-    public String getCurrentTemperature() {
-    	return temperatureNow.getText();
-    }
+	public String getCurrentTemperature() {
+		return temperatureNow.getText();
+	}
 }

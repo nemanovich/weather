@@ -62,8 +62,8 @@ public class WeatherShortForecastTest extends BaseTest {
 		// TODO: заменить magic number на поиск по аттрибуту type == 'day_short'
 		int expectedTemperature = expectedDayForecast.getDayPart().get(4)
 				.getTemperature();
-		int actualTemperature = 
-				Integer.parseInt(mainPage.getShortDayForcastWidget().getDayTemparature(index));
+		int actualTemperature = Integer.parseInt(mainPage
+				.getShortDayForcastWidget().getDayTemparature(index));
 
 		assertEquals(expectedTemperature, actualTemperature);
 	}

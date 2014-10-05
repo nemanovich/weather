@@ -26,10 +26,11 @@ public class WeatherDetailedTest extends BaseTest {
 	@Stories("описание погоды в первой строке")
 	@Test
 	public final void testFirstDescription() throws Exception {
-		String pageWeatherDescription = mainPage.getDetailedWeatherDescription(0);
+		String pageWeatherDescription = mainPage
+				.getDetailedWeatherDescription(0);
 		String serviceWeatherDescription = YandexWeatherService
-				.getForecast(City.SAINT_PETERSBURG.id()).getDay().get(0).getDayPart().get(0)
-				.getWeatherType();
+				.getForecast(City.SAINT_PETERSBURG.id()).getDay().get(0)
+				.getDayPart().get(0).getWeatherType();
 		assertEquals(serviceWeatherDescription, pageWeatherDescription);
 	}
 }

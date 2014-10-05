@@ -20,24 +20,24 @@ public class MainPage extends PageFactory {
 
 	private TodayWeather weatherToday;
 	private ShortDayForcast shortDayForcastWidget;
-	private SearchHintPopup searchHintPopup;	
-	private CitySwitcherPopup citySwitcherPopup;	
-    
+	private SearchHintPopup searchHintPopup;
+	private CitySwitcherPopup citySwitcherPopup;
+
 	@FindBy(className = "b-form-input__input")
 	private TextInput searchInput;
-	
+
 	@FindBy(className = "b-form-button__input")
 	private Button searchButton;
-	
+
 	@FindBy(className = "b-navigation-city__city")
 	private WebElement cityTitle;
-	
+
 	@FindBy(className = "b-pseudo-button_is-bem_yes")
 	private Button citySwitcherButton;
-	
+
 	@FindBy(xpath = ".//*[contains(@id, 'yandex_ad')]")
 	private WebElement topYandexDirect;
-	
+
 	@FindBy(id = "b-direct")
 	private WebElement verticalYandexDirect;
 
@@ -56,39 +56,42 @@ public class MainPage extends PageFactory {
 	}
 
 	@Step("Открыть страницу http://pogoda.yandex.ru/'{0}'")
-	public void loadPage(String region_url){
-		DriverFactory.getDriver().get("http://pogoda.yandex.ru/"+region_url);	
+	public void loadPage(String region_url) {
+		DriverFactory.getDriver().get("http://pogoda.yandex.ru/" + region_url);
 	}
-	
+
 	@Step("Ввод в поисковую строку '{0}' и клик по кнопке 'Найти'")
 	public void search(String searchQuery) {
-		new WebDriverWait(DriverFactory.getDriver(), 10).until(
-				ExpectedConditions.visibilityOf(searchInput.getWrappedElement())).sendKeys(searchQuery);
-		searchButton.click();	
+		new WebDriverWait(DriverFactory.getDriver(), 10)
+				.until(ExpectedConditions.visibilityOf(searchInput
+						.getWrappedElement())).sendKeys(searchQuery);
+		searchButton.click();
 		waitUntilSearchCompleted();
 	}
-	
+
 	@Step("Кликнуть на таб 'Кратко'")
 	public void selectDetailedForecast() {
 		new WebDriverWait(DriverFactory.getDriver(), 10).until(
 				ExpectedConditions.visibilityOf(detailedForecastTab)).click();
 	}
-	
+
 	@Step("Кликнуть на кнопку 'Другой город'")
 	public void openCitySwitcherPopup() {
 		new WebDriverWait(DriverFactory.getDriver(), 10).until(
-				ExpectedConditions.visibilityOf(citySwitcherButton.getWrappedElement())).click();
+				ExpectedConditions.visibilityOf(citySwitcherButton
+						.getWrappedElement())).click();
 	}
-		
-	public void waitUntilSearchCompleted(){
-		new WebDriverWait(DriverFactory.getDriver(), 10).until(new ExpectedCondition<Boolean>() {
-            @Override
-			public Boolean apply(WebDriver d) {
-                return searchInput.getText().isEmpty();
-            }
-        });
+
+	public void waitUntilSearchCompleted() {
+		new WebDriverWait(DriverFactory.getDriver(), 10)
+				.until(new ExpectedCondition<Boolean>() {
+					@Override
+					public Boolean apply(WebDriver d) {
+						return searchInput.getText().isEmpty();
+					}
+				});
 	}
-		
+
 	public Button getSearchButton() {
 		return searchButton;
 	}
@@ -99,10 +102,10 @@ public class MainPage extends PageFactory {
 
 	public String getCityTitle() {
 		new WebDriverWait(DriverFactory.getDriver(), 10)
-		.until(ExpectedConditions.visibilityOf(cityTitle));
+				.until(ExpectedConditions.visibilityOf(cityTitle));
 		return cityTitle.getText();
 	}
-	
+
 	public TodayWeather getWeatherToday() {
 		new WebDriverWait(DriverFactory.getDriver(), 10)
 				.until(ExpectedConditions.visibilityOf(weatherToday));
@@ -111,13 +114,13 @@ public class MainPage extends PageFactory {
 
 	public WebElement getTopYandexDirect() {
 		new WebDriverWait(DriverFactory.getDriver(), 5)
-		.until(ExpectedConditions.visibilityOf(topYandexDirect));
+				.until(ExpectedConditions.visibilityOf(topYandexDirect));
 		return topYandexDirect;
 	}
-	
+
 	public WebElement getVerticalYandexDirect() {
 		new WebDriverWait(DriverFactory.getDriver(), 5)
-		.until(ExpectedConditions.visibilityOf(verticalYandexDirect));
+				.until(ExpectedConditions.visibilityOf(verticalYandexDirect));
 		return verticalYandexDirect;
 	}
 
@@ -134,18 +137,18 @@ public class MainPage extends PageFactory {
 	}
 
 	public List<WebElement> getSearchHints() {
-		new WebDriverWait(DriverFactory.getDriver(), 10).until(
-				ExpectedConditions.visibilityOf(searchHintPopup));
+		new WebDriverWait(DriverFactory.getDriver(), 10)
+				.until(ExpectedConditions.visibilityOf(searchHintPopup));
 		return searchHintPopup.getHintsList();
 	}
-	
+
 	public Button getCitySwitcherButton() {
 		return citySwitcherButton;
 	}
 
 	public CitySwitcherPopup getCitySwitcherPopup() {
-		new WebDriverWait(DriverFactory.getDriver(), 10).until(
-				ExpectedConditions.visibilityOf(citySwitcherPopup));
+		new WebDriverWait(DriverFactory.getDriver(), 10)
+				.until(ExpectedConditions.visibilityOf(citySwitcherPopup));
 		return citySwitcherPopup;
-	}	
+	}
 }

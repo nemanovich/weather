@@ -14,16 +14,16 @@ import ru.yandex.qatools.htmlelements.element.HtmlElement;
 @Block(@FindBy(className = "b-forecast_line_9"))
 public class ShortDayForcast extends HtmlElement {
 
-    @Name("Дневная температура")
-    @FindBy(className = "b-forecast__tday")
-    private List<WebElement> dayTemparature;
+	@Name("Дневная температура")
+	@FindBy(className = "b-forecast__tday")
+	private List<WebElement> dayTemparature;
 
-    public List<WebElement> getDayTemparature() {
-    	return dayTemparature;
-    }
-    
-    @Step("Получить дневную температуру '{0}' дня от текущего")
-    public String getDayTemparature(int index) {
-    	return dayTemparature.get(index).getText();
-    }
+	public List<WebElement> getDayTemparature() {
+		return dayTemparature;
+	}
+
+	@Step("Получить дневную температуру '{0}' дня от текущего")
+	public String getDayTemparature(int index) {
+		return dayTemparature.get(index).getText();
+	}
 }

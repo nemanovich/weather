@@ -13,11 +13,11 @@ import ru.yandex.qatools.htmlelements.element.HtmlElement;
 @Block(@FindBy(className = "b-menu_type_city-switcher"))
 public class CitySwitcherPopup extends HtmlElement {
 
-    @Name("Список ссылок на страницы городов")
-    @FindBy(className = "b-link_type_with-temperature")
-    private List<WebElement> cityLinks;
+	@Name("Список ссылок на страницы городов")
+	@FindBy(className = "b-link_type_with-temperature")
+	private List<WebElement> cityLinks;
 
-    public List<WebElement> getCityLinks() {
-    	return cityLinks;
-    }
+	public List<WebElement> getCityLinks() {
+		return cityLinks;
+	}
 }
