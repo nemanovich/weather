@@ -47,7 +47,7 @@ public class MainPage extends PageFactory {
 	@FindBy(className = "b-forecast-detailed__data")
 	private WebElement detailedWeatherTable;
 
-	@FindBy(xpath = ".//*[@class ='b-forecast-detailed__item b-t_c_4']")
+	@FindBy(xpath = ".//*[contains(@class, 'b-forecast-detailed__item b-t_c_')]")
 	private List<WebElement> detailedWeatherDescriptions;
 
 	public MainPage() {

@@ -32,9 +32,8 @@ public class TodayWeatherTest extends BaseTest {
 	public final void testCurrentTemperature() throws Exception {
 		String actualTemperature = mainPage.getWeatherToday()
 				.getCurrentTemperature();
-		int expectedTemperature = YandexWeatherService
-				.getForecast(City.MOSCOW.id()).getFact().getTemperature()
-				.getValue();
+		int expectedTemperature = getForecast(City.MOSCOW).getFact()
+				.getTemperature().getValue();
 		assertEquals(String.format("+%s °C", expectedTemperature),
 				actualTemperature);
 	}

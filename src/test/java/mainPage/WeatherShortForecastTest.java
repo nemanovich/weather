@@ -28,14 +28,9 @@ public class WeatherShortForecastTest extends BaseTest {
 	public int index;
 	public DayType expectedDayForecast;
 
-	private static ForecastType getForecast(int id)
-			throws MalformedURLException, JAXBException {
-		return YandexWeatherService.getForecast(City.MOSCOW.id());
-	}
-
 	@org.junit.runners.Parameterized.Parameters(name = "temperature in day {0}")
 	public static List<Object[]> getDayForecast() throws Exception {
-		List<DayType> days = getForecast(City.MOSCOW.id()).getDay();
+		List<DayType> days = getForecast(City.MOSCOW).getDay();
 		days.remove(0); // убираем сегодняшний день
 		List<Object[]> parameters = new ArrayList<Object[]>();
 		for (int i = 0; i < days.size(); i++) {
