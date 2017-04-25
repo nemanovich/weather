@@ -8,7 +8,7 @@ import ru.yandex.qatools.allure.annotations.Stories;
 import ru.yandex.qatools.allure.annotations.Title;
 import ru.yandex.weather.utils.data.Region;
 import ru.yandex.weather.utils.rules.DriverRule;
-import views.MainPage;
+import ru.yandex.weather.views.MainPage;
 
 import static org.junit.Assert.assertThat;
 import static ru.yandex.qatools.htmlelements.matchers.WrapsElementMatchers.hasText;

@@ -1,4 +1,4 @@
-package views.weather.current;
+package ru.yandex.weather.views.weather.current;
 
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.htmlelements.annotations.Name;

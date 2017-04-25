@@ -10,7 +10,7 @@ import ru.yandex.weather.api.YaWeatherApi;
 import ru.yandex.weather.api.beans.forecast.ForecastResult;
 import ru.yandex.weather.utils.data.Region;
 import ru.yandex.weather.utils.rules.DriverRule;
-import views.MainPage;
+import ru.yandex.weather.views.MainPage;
 
 import static org.junit.Assert.assertThat;
 import static ru.yandex.qatools.htmlelements.matchers.WrapsElementMatchers.hasText;

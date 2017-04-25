@@ -10,8 +10,8 @@ import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 import ru.yandex.weather.utils.data.Region;
 import ru.yandex.weather.utils.rules.DriverRule;
-import views.MainPage;
-import views.weather.brief.BriefForcast;
+import ru.yandex.weather.views.MainPage;
+import ru.yandex.weather.views.weather.brief.BriefForcast;
 
 import java.util.Collection;
 import java.util.stream.IntStream;

@@ -1,4 +1,4 @@
-package views;
+package ru.yandex.weather.views;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -7,9 +7,9 @@ import ru.yandex.qatools.htmlelements.annotations.Name;
 import ru.yandex.qatools.htmlelements.element.Button;
 import ru.yandex.qatools.htmlelements.element.HtmlElement;
 import ru.yandex.qatools.htmlelements.loader.HtmlElementLoader;
-import views.weather.brief.BriefForcast;
-import views.weather.current.CurrentWeather;
-import views.weather.detailed.DetailedForecast;
+import ru.yandex.weather.views.weather.brief.BriefForcast;
+import ru.yandex.weather.views.weather.current.CurrentWeather;
+import ru.yandex.weather.views.weather.detailed.DetailedForecast;
 
 public class MainPage {
 

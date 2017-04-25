@@ -1,4 +1,4 @@
-package views.weather.brief;
+package ru.yandex.weather.views.weather.brief;
 
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.htmlelements.annotations.Name;

@@ -1,4 +1,4 @@
-package views;
+package ru.yandex.weather.views;
 
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.allure.annotations.Step;
