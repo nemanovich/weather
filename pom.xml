@@ -10,7 +10,7 @@
     <description>Test for Ya.Weather</description>
 
     <scm>
-        <url>https://git.yandex.ru/qa/autotests/market/market-user-web.git/</url>
+        <url>https://github.com/nemanovich/weather.git/</url>
     </scm>
 
     <properties>
