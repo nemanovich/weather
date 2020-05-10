@@ -13,14 +13,10 @@ public class Suggest extends HtmlElement {
 
     @Name("Элементы поискового саджеста")
     @FindBy(className = "suggest2-item")
-    private List<HtmlElement> hints;
-
-    public List<HtmlElement> getHints() {
-        return hints;
-    }
+    public List<HtmlElement> hints;
 
     @Step("Выбрать {0} по порядку подсказку (индекс c 0)")
     public void selectHint(int index) {
-        getHints().get(index).click();
+        hints.get(index).click();
     }
 }

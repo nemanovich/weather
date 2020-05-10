@@ -1,6 +1,7 @@
-package ru.yandex.weather.weather;
+package ru.yandex.weather.old.weather;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import ru.yandex.qatools.allure.annotations.Features;
@@ -31,11 +32,12 @@ public class CurrentWeatherTest {
         driver.open(getRegionUrl(REGION));
     }
 
+    @Ignore
     @Test
     @Title("Текущая температура")
     public void testCurrentTemperature() {
         int expectedTemp = getRegionForecast(REGION).getFact().getTemp();
 
-        assertThat(mainPage.getCurrentWeather().getTempNow(), hasText(isTemperature(expectedTemp).withDegree()));
+        assertThat(mainPage.currentWeather.getTempNow(), hasText(isTemperature(expectedTemp).withDegree()));
     }
 }

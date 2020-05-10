@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.allure.annotations.Step;
 import ru.yandex.qatools.htmlelements.annotations.Name;
-import ru.yandex.qatools.htmlelements.element.Button;
 import ru.yandex.qatools.htmlelements.element.HtmlElement;
 import ru.yandex.qatools.htmlelements.loader.HtmlElementLoader;
 import ru.yandex.weather.views.weather.brief.BriefForcast;
@@ -13,29 +12,25 @@ import ru.yandex.weather.views.weather.detailed.DetailedForecast;
 
 public class MainPage {
 
-    private Header header;
-    private CurrentWeather currentWeather;
-    private BriefForcast briefForcast;
-    private DetailedForecast detailedForcast;
-    private Suggest suggest;
-    private CitySwitcherPopup citySwitcherPopup;
+    public Header header;
+    public CurrentWeather currentWeather;
+    public BriefForcast briefForcast;
+    public DetailedForecast detailedForcast;
+    public Suggest suggest;
 
-    @FindBy(css = ".navigation-city .title")
-    private HtmlElement cityTitle;
-
-    @FindBy(className = "button_choose-city")
-    private Button citySwitcherButton;
+    @FindBy(className = "header-title")
+    public HtmlElement title;
 
     @Name("Верхний блок Директа")
     @FindBy(className = "adv_pos_top")
-    private HtmlElement topYaDirect;
+    public HtmlElement topYaDirect;
 
     @Name("Нижний блок Директа")
     @FindBy(className = "adv_pos_bottom")
-    private HtmlElement bottomYaDirect;
+    public HtmlElement bottomYaDirect;
 
     @FindBy(className = "radio-button__radio_side_right")
-    private HtmlElement detailedForecastTab;
+    public HtmlElement detailedForecastTab;
 
     public MainPage(WebDriver driver) {
         HtmlElementLoader.populate(this, driver);
@@ -46,44 +41,4 @@ public class MainPage {
         detailedForecastTab.click();
     }
 
-    @Step("Кликнуть на кнопку 'Другой город'")
-    public void openCitySwitcherPopup() {
-        citySwitcherButton.click();
-    }
-
-    public Header getHeader() {
-        return header;
-    }
-
-    public HtmlElement getCityTitle() {
-        return cityTitle;
-    }
-
-    public CurrentWeather getCurrentWeather() {
-        return currentWeather;
-    }
-
-    public HtmlElement getTopYaDirect() {
-        return topYaDirect;
-    }
-
-    public HtmlElement getBottomYaDirect() {
-        return bottomYaDirect;
-    }
-
-    public DetailedForecast getDetailedForcast() {
-        return detailedForcast;
-    }
-
-    public CitySwitcherPopup getCitySwitcherPopup() {
-        return citySwitcherPopup;
-    }
-
-    public BriefForcast getBriefForcast() {
-        return briefForcast;
-    }
-
-    public Suggest getSuggest() {
-        return suggest;
-    }
 }

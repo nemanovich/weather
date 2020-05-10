@@ -1,30 +1,19 @@
 package ru.yandex.weather.utils.rules;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import ru.yandex.qatools.allure.annotations.Step;
-
-import static org.openqa.selenium.remote.DesiredCapabilities.firefox;
 
 public class DriverRule extends TestWatcher {
 
     private WebDriver driver;
-    private DesiredCapabilities caps;
 
     public DriverRule() {
-        this(firefox());
-    }
-
-    public DriverRule(DesiredCapabilities caps) {
-        this.caps = caps;
-    }
-
-    public DriverRule(WebDriver webDriver) {
-        this.driver = webDriver;
+        WebDriverManager.chromedriver().setup();
     }
 
     @Override
@@ -42,7 +31,7 @@ public class DriverRule extends TestWatcher {
 
     public WebDriver getWebDriver() {
         if (driver == null) {
-            driver = new RemoteWebDriver(firefox());
+            driver = new ChromeDriver();
         }
         return driver;
     }

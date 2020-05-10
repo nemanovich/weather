@@ -15,7 +15,7 @@ public class YaWeatherApi {
     public static ForecastResult getRegionForecast(Region region) {
         ForecastResult result = null;
         try {
-            result = getForecastResult(getForecastURIByGeoId(Region.MOSCOW.id()).build().toString());
+            result = getForecastResult(getForecastURIByGeoId(region.id()).build().toString());
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }

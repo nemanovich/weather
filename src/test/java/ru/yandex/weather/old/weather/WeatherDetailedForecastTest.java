@@ -1,6 +1,7 @@
-package ru.yandex.weather.weather;
+package ru.yandex.weather.old.weather;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import ru.yandex.qatools.allure.annotations.Features;
@@ -35,6 +36,7 @@ public class WeatherDetailedForecastTest {
         mainPage.selectDetailedForecast();
     }
 
+    @Ignore
     @Test
     @Title("Описание прогноза погоды на ближайшее утро")
     public void testDetailedMorningForecastDescription() {
@@ -42,7 +44,7 @@ public class WeatherDetailedForecastTest {
 
         assertThat(
                 "неверное описание прогноза погоды в первой строке подробного виджета",
-                mainPage.getDetailedForcast().getDaysInfoItems().get(0).getDayTimes().get(0).getCondition(),
+                mainPage.detailedForcast.getDaysInfoItems().get(0).getDayTimes().get(0).getCondition(),
                 hasText(forecast.getLocalization().get(conditionEng))
         );
     }

@@ -10,9 +10,6 @@ import java.util.List;
 @FindBy(className = "forecast-brief")
 public class BriefForcast extends HtmlElement {
 
-    private List<BriefForecastItem> items;
+    public List<BriefForecastItem> items;
 
-    public List<BriefForecastItem> getItems() {
-        return items;
-    }
 }

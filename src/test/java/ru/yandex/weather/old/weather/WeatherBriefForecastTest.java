@@ -1,6 +1,7 @@
-package ru.yandex.weather.weather;
+package ru.yandex.weather.old.weather;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,7 +33,7 @@ public class WeatherBriefForecastTest {
 
     @Rule
     public DriverRule driver = new DriverRule();
-    private BriefForcast briefForcast = new MainPage(driver.getWebDriver()).getBriefForcast();
+    private BriefForcast briefForcast = new MainPage(driver.getWebDriver()).briefForcast;
 
     private int index;
 
@@ -50,12 +51,13 @@ public class WeatherBriefForecastTest {
         driver.open(getRegionUrl(REGION));
     }
 
+    @Ignore
     @Test
     @Description("Максимальная дневная температура")
     public void testMaxDayTemperature() {
         int t = getRegionForecast(REGION).getForecasts().get(index).getParts().getDay().getTempMax();
         assertThat("неверная дневная температура в столбце №" + (index + 1),
-                briefForcast.getItems().get(index).getDayTemp(),
+                briefForcast.items.get(index).getDayTemp(),
                 hasText(isTemperature(t))
         );
     }

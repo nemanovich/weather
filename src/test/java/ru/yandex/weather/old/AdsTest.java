@@ -1,6 +1,7 @@
-package ru.yandex.weather;
+package ru.yandex.weather.old;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import ru.yandex.qatools.allure.annotations.Features;
@@ -27,10 +28,11 @@ public class AdsTest {
         driver.open(getRegionUrl(MOSCOW));
     }
 
+    @Ignore
     @Test
     @Title("Отображение блоков директа на странице")
     public void testYaDirectBlocks() {
-        assertThat("Верхний блок директа не отображается", mainPage.getTopYaDirect(), isDisplayed());
-        assertThat("Нижний блок директа не отображается", mainPage.getBottomYaDirect(), isDisplayed());
+        assertThat("Верхний блок директа не отображается", mainPage.topYaDirect, isDisplayed());
+        assertThat("Нижний блок директа не отображается", mainPage.bottomYaDirect, isDisplayed());
     }
 }
