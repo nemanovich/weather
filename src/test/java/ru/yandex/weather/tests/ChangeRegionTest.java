@@ -1,4 +1,4 @@
-package ru.yandex.weather.old.region;
+package ru.yandex.weather.tests;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -7,13 +7,12 @@ import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 import ru.yandex.qatools.allure.annotations.Title;
 import ru.yandex.weather.utils.rules.DriverRule;
-import ru.yandex.weather.views.MainPage;
+import ru.yandex.weather.views.weather.MainPage;
 
 import static org.hamcrest.CoreMatchers.startsWith;
 import static org.junit.Assert.assertThat;
 import static ru.yandex.qatools.htmlelements.matchers.WrapsElementMatchers.hasText;
 import static ru.yandex.weather.utils.FrontendURIFactory.getRegionUrl;
-import static ru.yandex.weather.utils.data.Region.MOSCOW;
 
 @Features("Смена региона")
 public class ChangeRegionTest {
@@ -24,7 +23,7 @@ public class ChangeRegionTest {
 
     @Before
     public void openMainPage() {
-        driver.open(getRegionUrl(MOSCOW));
+        driver.open(getRegionUrl("moscow"));
     }
 
     @Test

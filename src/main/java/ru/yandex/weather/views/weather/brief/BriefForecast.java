@@ -7,8 +7,12 @@ import ru.yandex.qatools.htmlelements.element.HtmlElement;
 import java.util.List;
 
 @Name("Прогноз погоды кратко")
-@FindBy(className = "forecast-brief")
-public class BriefForcast extends HtmlElement {
+@FindBy(className = "forecast-briefly")
+public class BriefForecast extends HtmlElement {
+
+    @Name("Прогноз погоды на месяц")
+    @FindBy(linkText = "На месяц")
+    public HtmlElement monthForecastLink;
 
     public List<BriefForecastItem> items;
 

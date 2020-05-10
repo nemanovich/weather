@@ -1,4 +1,4 @@
-package ru.yandex.weather.views;
+package ru.yandex.weather.views.weather;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.FindBy;
