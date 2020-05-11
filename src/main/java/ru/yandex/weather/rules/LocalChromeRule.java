@@ -1,18 +1,17 @@
-package ru.yandex.weather.utils.rules;
+package ru.yandex.weather.rules;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
-import ru.yandex.qatools.allure.annotations.Step;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
-public class DriverRule extends TestWatcher {
+public class LocalChromeRule extends TestWatcher implements WebDriverRule {
 
-    private WebDriver driver;
+    private RemoteWebDriver driver;
 
-    public DriverRule() {
+    public LocalChromeRule() {
         WebDriverManager.chromedriver().setup();
     }
 
@@ -29,7 +28,7 @@ public class DriverRule extends TestWatcher {
         driver = null;
     }
 
-    public WebDriver getWebDriver() {
+    public RemoteWebDriver getWebDriver() {
         if (driver == null) {
             driver = new ChromeDriver();
         }
@@ -43,10 +42,5 @@ public class DriverRule extends TestWatcher {
         } catch (WebDriverException e) {
             return false;
         }
-    }
-
-    @Step("Открыть страницу {0}")
-    public void open(String url) {
-        getWebDriver().get(url);
     }
 }
