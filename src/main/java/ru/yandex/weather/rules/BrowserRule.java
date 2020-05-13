@@ -1,18 +1,18 @@
 package ru.yandex.weather.rules;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import ru.yandex.weather.rules.provider.WebDriverProvider;
 
-public class LocalChromeRule extends TestWatcher implements WebDriverRule {
+public class BrowserRule extends TestWatcher implements WebDriverRule {
 
+    private final WebDriverProvider provider;
     private RemoteWebDriver driver;
 
-    public LocalChromeRule() {
-        WebDriverManager.chromedriver().setup();
+    public BrowserRule(WebDriverProvider provider) {
+        this.provider = provider;
     }
 
     @Override
@@ -30,7 +30,7 @@ public class LocalChromeRule extends TestWatcher implements WebDriverRule {
 
     public RemoteWebDriver getWebDriver() {
         if (driver == null) {
-            driver = new ChromeDriver();
+            driver = provider.createDriver();
         }
         return driver;
     }

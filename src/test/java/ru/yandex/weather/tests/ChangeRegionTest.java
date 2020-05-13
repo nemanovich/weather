@@ -19,13 +19,13 @@ import static ru.yandex.weather.utils.FrontendURIFactory.getRegionUrl;
 public class ChangeRegionTest {
 
     @ClassRule
-    public static WebDriverRule chrome = webDriverRule();
+    public static WebDriverRule browser = webDriverRule();
 
-    private MainPage mainPage = new MainPage(chrome.getWebDriver());
+    private MainPage mainPage = new MainPage(browser.getWebDriver());
 
     @Before
     public void openMainPage() {
-        chrome.getWebDriver().get(getRegionUrl("moscow"));
+        browser.getWebDriver().get(getRegionUrl("moscow"));
     }
 
     @Test

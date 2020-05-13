@@ -56,6 +56,11 @@
             <artifactId>httpclient</artifactId>
             <version>4.5.12</version>
         </dependency>
+        <dependency>
+            <groupId>org.awaitility</groupId>
+            <artifactId>awaitility</artifactId>
+            <version>4.0.2</version>
+        </dependency>
     </dependencies>
 
     <build>
